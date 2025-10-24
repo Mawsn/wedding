@@ -6,18 +6,18 @@
 const GOOGLE_FORM_CONFIG = {
   // Get this URL from your Google Form's "Send" -> "Link" option
   // Then replace /viewform with /formResponse
-  formUrl: 'https://docs.google.com/forms/d/e/YOUR_FORM_ID/formResponse',
+  formUrl: 'https://docs.google.com/forms/d/e/1FAIpQLSfQQhTTuSl3-5Ef8fQxHjdBeEEFflKcoDPFeJkKAQ6vPZWNcw/formResponse',
   
   // Get these entry IDs by inspecting your Google Form's HTML
   // Right-click on your published form, view source, and search for "entry."
   fields: {
-    name: 'entry.NAME_ID',      // Replace NAME_ID with actual number
-    email: 'entry.EMAIL_ID',     // Replace EMAIL_ID with actual number
-    phone: 'entry.PHONE_ID',     // Replace PHONE_ID with actual number
-    attendance: 'entry.ATTENDANCE_ID',
-    guests: 'entry.GUESTS_ID',
-    dietary: 'entry.DIETARY_ID',
-    message: 'entry.MESSAGE_ID'
+    name: 'entry.380245596',
+    email: 'entry.784060407',
+    phone: 'entry.196884952',
+    attendance: 'entry.997001127',
+    guests: 'entry.1591212519',
+    dietary: 'entry.1383536534',
+    message: 'entry.493022073',
   }
 };
 

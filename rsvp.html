@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="RSVP for Sally and Elisha's Wedding">
+    <meta name="theme-color" content="#8B7355">
+    <title>RSVP - Sally & Elisha's Wedding</title>
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/main.css">
+    
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="manifest.json">
+    
+    <!-- Icons -->
+    <link rel="icon" type="image/png" sizes="32x32" href="icons/icon-32.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192.png">
+    <link rel="apple-touch-icon" href="icons/icon-192.png">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav" id="main-nav">
+        <div class="nav-container">
+            <div class="nav-brand">S & E</div>
+            <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation">
+                <span class="hamburger"></span>
+            </button>
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="details.html" class="nav-link">Details</a></li>
+                <li><a href="rsvp.html" class="nav-link active">RSVP</a></li>
+                <li><a href="photos.html" class="nav-link">Photos</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="page-header">
+        <div class="container">
+            <h1 class="page-title">RSVP</h1>
+            <p class="page-subtitle">Please let us know if you can join us</p>
+        </div>
+    </header>
+
+    <!-- RSVP Form Section -->
+    <section class="section rsvp-section">
+        <div class="container">
+            <div class="rsvp-intro">
+                <p>We'd love to have you celebrate with us! Please RSVP by <strong>1st February 2026</strong>.</p>
+            </div>
+
+            <!-- Form Success Message (hidden by default) -->
+            <div id="form-success" class="message message-success" style="display: none;">
+                <h3>Thank you for your RSVP!</h3>
+                <p>We're so excited to celebrate with you.</p>
+            </div>
+
+            <!-- Form Error Message (hidden by default) -->
+            <div id="form-error" class="message message-error" style="display: none;">
+                <h3>Oops! Something went wrong.</h3>
+                <p>Please try again or contact us directly.</p>
+            </div>
+
+            <!-- RSVP Form -->
+            <form id="rsvp-form" class="rsvp-form" novalidate>
+                <!-- Name Field -->
+                <div class="form-group">
+                    <label for="name" class="form-label">Full Name *</label>
+                    <input 
+                        type="text" 
+                        id="name" 
+                        name="entry.NAME_ID"
+                        class="form-input" 
+                        required
+                        aria-required="true"
+                        placeholder="John Smith"
+                    >
+                    <span class="form-error" id="name-error"></span>
+                </div>
+
+                <!-- Email Field -->
+                <div class="form-group">
+                    <label for="email" class="form-label">Email Address *</label>
+                    <input 
+                        type="email" 
+                        id="email" 
+                        name="entry.EMAIL_ID"
+                        class="form-input" 
+                        required
+                        aria-required="true"
+                        placeholder="john@example.com"
+                    >
+                    <span class="form-error" id="email-error"></span>
+                </div>
+
+                <!-- Phone Field -->
+                <div class="form-group">
+                    <label for="phone" class="form-label">Phone Number</label>
+                    <input 
+                        type="tel" 
+                        id="phone" 
+                        name="entry.PHONE_ID"
+                        class="form-input" 
+                        placeholder="0412 345 678"
+                    >
+                </div>
+
+                <!-- Attendance Field -->
+                <div class="form-group">
+                    <label class="form-label">Will you be attending? *</label>
+                    <div class="radio-group">
+                        <label class="radio-label">
+                            <input 
+                                type="radio" 
+                                name="entry.ATTENDANCE_ID" 
+                                value="Yes, I'll be there!" 
+                                required
+                                aria-required="true"
+                            >
+                            <span>Yes, I'll be there!</span>
+                        </label>
+                        <label class="radio-label">
+                            <input 
+                                type="radio" 
+                                name="entry.ATTENDANCE_ID" 
+                                value="Sorry, I can't make it"
+                            >
+                            <span>Sorry, I can't make it</span>
+                        </label>
+                    </div>
+                    <span class="form-error" id="attendance-error"></span>
+                </div>
+
+                <!-- Number of Guests Field -->
+                <div class="form-group">
+                    <label for="guests" class="form-label">Number of Guests (including yourself)</label>
+                    <input 
+                        type="number" 
+                        id="guests" 
+                        name="entry.GUESTS_ID"
+                        class="form-input" 
+                        min="0"
+                        max="10"
+                        value="1"
+                        placeholder="1"
+                    >
+                </div>
+
+                <!-- Dietary Requirements Field -->
+                <div class="form-group">
+                    <label for="dietary" class="form-label">Dietary Requirements</label>
+                    <textarea 
+                        id="dietary" 
+                        name="entry.DIETARY_ID"
+                        class="form-textarea" 
+                        rows="3"
+                        placeholder="Please let us know of any allergies or dietary restrictions"
+                    ></textarea>
+                </div>
+
+                <!-- Message Field -->
+                <div class="form-group">
+                    <label for="message" class="form-label">Message to the Couple</label>
+                    <textarea 
+                        id="message" 
+                        name="entry.MESSAGE_ID"
+                        class="form-textarea" 
+                        rows="4"
+                        placeholder="We'd love to hear from you!"
+                    ></textarea>
+                </div>
+
+                <!-- Submit Button -->
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-primary btn-large">Submit RSVP</button>
+                </div>
+            </form>
+
+            <!-- Instructions for setting up Google Form -->
+            <div class="setup-instructions" style="margin-top: 2rem; padding: 1rem; background: #f5f5f5; border-radius: 8px;">
+                <h3 style="margin-top: 0; font-size: 1rem;">📝 Setup Instructions</h3>
+                <p style="font-size: 0.9rem; margin-bottom: 0.5rem;">To connect this form to Google Forms:</p>
+                <ol style="font-size: 0.875rem; margin-left: 1.5rem;">
+                    <li>Create a Google Form with matching fields</li>
+                    <li>Get the form action URL and field IDs from the form's HTML</li>
+                    <li>Update <code>js/modules/rsvp.js</code> with your form URL</li>
+                    <li>Replace entry.NAME_ID, entry.EMAIL_ID, etc. with actual field IDs</li>
+                </ol>
+                <p style="font-size: 0.875rem; margin-top: 0.5rem;"><em>This section can be removed once setup is complete.</em></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 Sally & Elisha. All rights reserved.</p>
+            <p>For questions, please contact us at <a href="mailto:sallyandElisha@wedding.com">sallyandElisha@wedding.com</a></p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script type="module" src="js/app.js"></script>
+</body>
+</html>

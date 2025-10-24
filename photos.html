@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Wedding Photos - Sally and Elisha">
+    <meta name="theme-color" content="#8B7355">
+    <title>Photos - Sally & Elisha's Wedding</title>
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/main.css">
+    
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="manifest.json">
+    
+    <!-- Icons -->
+    <link rel="icon" type="image/png" sizes="32x32" href="icons/icon-32.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192.png">
+    <link rel="apple-touch-icon" href="icons/icon-192.png">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav" id="main-nav">
+        <div class="nav-container">
+            <div class="nav-brand">S & E</div>
+            <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation">
+                <span class="hamburger"></span>
+            </button>
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="details.html" class="nav-link">Details</a></li>
+                <li><a href="rsvp.html" class="nav-link">RSVP</a></li>
+                <li><a href="photos.html" class="nav-link active">Photos</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="page-header">
+        <div class="container">
+            <h1 class="page-title">Wedding Photos</h1>
+            <p class="page-subtitle">Share your memories with us</p>
+        </div>
+    </header>
+
+    <!-- Coming Soon Section -->
+    <section class="section photos-placeholder">
+        <div class="container">
+            <div class="placeholder-content">
+                <div class="placeholder-icon">📸</div>
+                <h2>Coming Soon!</h2>
+                <p class="placeholder-text">
+                    After the wedding, this page will allow you to upload and view photos from our special day.
+                </p>
+                <p class="placeholder-text">
+                    We'll be integrating with Google Drive to make it easy for everyone to share their 
+                    favorite moments and memories.
+                </p>
+                <div class="placeholder-features">
+                    <h3>Planned Features:</h3>
+                    <ul>
+                        <li>📱 Upload photos directly from your phone</li>
+                        <li>📷 Capture photos using your device's camera</li>
+                        <li>🖼️ Browse all wedding photos in a beautiful gallery</li>
+                        <li>💾 Automatic backup to Google Drive</li>
+                        <li>⬇️ Download your favorite photos</li>
+                    </ul>
+                </div>
+                <p class="placeholder-note">
+                    <em>Check back after the wedding for updates!</em>
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Photo Gallery Placeholder Grid -->
+    <section class="section photo-grid-section">
+        <div class="container">
+            <h2 class="section-title">Photo Gallery Preview</h2>
+            <div class="photo-grid" id="photo-grid">
+                <!-- Placeholder grid items -->
+                <div class="photo-placeholder"></div>
+                <div class="photo-placeholder"></div>
+                <div class="photo-placeholder"></div>
+                <div class="photo-placeholder"></div>
+                <div class="photo-placeholder"></div>
+                <div class="photo-placeholder"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 Sally & Elisha. All rights reserved.</p>
+            <p>For questions, please contact us at <a href="mailto:sallyandElisha@wedding.com">sallyandElisha@wedding.com</a></p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script type="module" src="js/app.js"></script>
+</body>
+</html>

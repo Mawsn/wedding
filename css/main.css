@@ -1,6 +1,18 @@
 /* Main Stylesheet for Wedding Website */
 
 /* ============================================================================
+   Custom Fonts
+   ========================================================================= */
+
+@font-face {
+  font-family: 'Weddingday';
+  src: url('../fonts/Weddingday.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ============================================================================
    Base & Reset Styles
    ========================================================================= */
 
@@ -125,10 +137,15 @@ a:hover {
 }
 
 .nav-brand {
-  font-family: var(--font-accent);
-  font-size: var(--font-size-3xl);
+  font-family: var(--font-wedding);
+  font-size: 1.75rem;
   color: var(--color-primary);
-  font-weight: var(--font-weight-bold);
+  font-weight: normal;
+  display: flex;
+  flex-direction: column;
+  line-height: 0.9;
+  text-align: center;
+  letter-spacing: 0.02em;
 }
 
 .nav-menu {
@@ -211,6 +228,10 @@ a:hover {
     display: block;
   }
 
+  .nav-brand {
+    font-size: 1.25rem;
+  }
+
   .nav-menu {
     position: absolute;
     top: 100%;
@@ -261,11 +282,12 @@ a:hover {
 }
 
 .hero-title {
-  font-family: var(--font-accent);
+  font-family: var(--font-wedding);
   font-size: var(--font-size-6xl);
   color: white;
   margin-bottom: var(--spacing-sm);
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  letter-spacing: 0.02em;
 }
 
 .hero-subtitle {

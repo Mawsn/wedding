@@ -16,7 +16,8 @@ const STATIC_CACHE_URLS = [
   '/js/app.js',
   '/js/modules/navigation.js',
   '/js/modules/rsvp.js',
-  '/manifest.json'
+  '/manifest.json',
+  '/fonts/Weddingday.ttf'
 ];
 
 // Install event - cache static assets

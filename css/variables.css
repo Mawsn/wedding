@@ -97,7 +97,7 @@
   --z-tooltip: 1070;
 }
 
-/* Dark mode support (optional for future enhancement) */
+/* Dark mode support */
 @media (prefers-color-scheme: dark) {
   :root {
     --color-text: #F5F5F5;
@@ -105,5 +105,7 @@
     --color-background: #1A1A1A;
     --color-background-alt: #2C2C2C;
     --color-border: #404040;
+    --color-primary: #C4A57B;  /* Lighter version for better visibility on dark backgrounds */
+    --color-primary-light: #D4B88F;
   }
 }

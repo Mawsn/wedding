@@ -146,6 +146,20 @@ a:hover {
   line-height: 0.9;
   text-align: center;
   letter-spacing: 0.02em;
+  text-decoration: none;
+  cursor: pointer;
+  transition: opacity var(--transition-fast);
+}
+
+.nav-brand:hover {
+  opacity: 0.8;
+  text-decoration: none;
+}
+
+.nav-brand:focus {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 4px;
+  opacity: 0.8;
 }
 
 .nav-menu {
@@ -239,16 +253,17 @@ a:hover {
     right: 0;
     background: var(--color-background);
     flex-direction: column;
-    padding: var(--spacing-lg);
+    padding: 0;
     box-shadow: var(--shadow-lg);
     max-height: 0;
     overflow: hidden;
-    transition: max-height var(--transition-base);
+    transition: max-height var(--transition-base), padding var(--transition-base);
     gap: 0;
   }
 
   .nav-menu.active {
     max-height: 500px;
+    padding: var(--spacing-lg);
   }
 
   .nav-menu li {
@@ -927,5 +942,41 @@ textarea:focus {
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
+  }
+}
+
+/* ============================================================================
+   Dark Mode Overrides
+   ========================================================================= */
+
+/* Ensure navigation elements are visible in dark mode */
+@media (prefers-color-scheme: dark) {
+  /* Navigation text should be light colored */
+  .nav-link {
+    color: var(--color-text);
+  }
+  
+  .nav-link:hover,
+  .nav-link.active {
+    color: var(--color-primary);
+    background: var(--color-background-alt);
+  }
+  
+  /* Brand logo should use lighter primary color */
+  .nav-brand {
+    color: var(--color-primary);
+  }
+  
+  /* Hamburger icon bars should be white */
+  .hamburger,
+  .hamburger::before,
+  .hamburger::after {
+    background: var(--color-text);
+  }
+  
+  /* Navigation background */
+  .nav {
+    background: var(--color-background);
+    border-bottom: 1px solid var(--color-border);
   }
 }

@@ -125,10 +125,13 @@ a:hover {
 }
 
 .nav-brand {
-  font-family: var(--font-accent);
-  font-size: var(--font-size-3xl);
+  font-family: var(--font-wedding);
+  font-size: var(--font-size-2xl);
   color: var(--color-primary);
-  font-weight: var(--font-weight-bold);
+  font-weight: var(--font-weight-normal);
+  line-height: 1.1;
+  text-align: center;
+  white-space: pre-line;
 }
 
 .nav-menu {
@@ -211,6 +214,10 @@ a:hover {
     display: block;
   }
 
+  .nav-brand {
+    font-size: var(--font-size-xl);
+  }
+
   .nav-menu {
     position: absolute;
     top: 100%;
@@ -261,11 +268,12 @@ a:hover {
 }
 
 .hero-title {
-  font-family: var(--font-accent);
+  font-family: var(--font-wedding);
   font-size: var(--font-size-6xl);
   color: white;
   margin-bottom: var(--spacing-sm);
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  font-weight: normal;
 }
 
 .hero-subtitle {

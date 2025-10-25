@@ -267,7 +267,7 @@ a:hover {
    ========================================================================= */
 
 .hero {
-  background: linear-gradient(135deg, var(--color-primary-light) 0%, var(--color-primary) 100%);
+  position: relative;
   color: white;
   text-align: center;
   padding: var(--spacing-4xl) var(--spacing-md);
@@ -275,10 +275,58 @@ a:hover {
   display: flex;
   align-items: center;
   justify-content: center;
+  overflow: hidden;
 }
 
+/* Blurred base layer - fills entire background */
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url('../images/cvi-mobile.webp');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  filter: blur(40px);
+  transform: scale(1.1);
+  z-index: 1;
+}
+
+/* Sharp overlay - shows full image on mobile, fades on desktop */
+.hero::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url('../images/cvi-mobile.webp');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: 2;
+}
+
+/* Dark overlay for text readability */
 .hero-content {
+  position: relative;
+  z-index: 4;
   max-width: var(--container-md);
+}
+
+.hero-content::before {
+  content: '';
+  position: absolute;
+  top: -2rem;
+  left: -2rem;
+  right: -2rem;
+  bottom: -2rem;
+  background: rgba(0, 0, 0, 0.3);
+  z-index: -1;
+  border-radius: var(--border-radius);
 }
 
 .hero-title {
@@ -754,6 +802,50 @@ a:hover {
 /* ============================================================================
    Responsive Adjustments
    ========================================================================= */
+
+/* Hero Background - Tablet */
+@media (min-width: 768px) {
+  .hero::before,
+  .hero::after {
+    background-image: url('../images/cvi-tablet.webp');
+  }
+  
+  /* Start transitioning to blur extension */
+  .hero::after {
+    background-size: contain;
+    opacity: 0.9;
+  }
+}
+
+/* Hero Background - Desktop */
+@media (min-width: 1024px) {
+  .hero::before,
+  .hero::after {
+    background-image: url('../images/cvi-desktop.webp');
+  }
+  
+  /* Full blur extension effect */
+  .hero::before {
+    filter: blur(50px);
+  }
+  
+  .hero::after {
+    background-size: contain;
+    opacity: 0.8;
+  }
+}
+
+/* Hero Background - Ultra-wide */
+@media (min-width: 1920px) {
+  /* More prominent blur on ultra-wide displays */
+  .hero::before {
+    filter: blur(60px);
+  }
+  
+  .hero::after {
+    opacity: 0.7;
+  }
+}
 
 @media (max-width: 768px) {
   .hero-title {

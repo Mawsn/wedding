@@ -1,7 +1,7 @@
 // Service Worker for Wedding Website PWA
 // Provides offline capabilities and caching
 
-const CACHE_VERSION = 'v1';
+const CACHE_VERSION = 'v2';
 const CACHE_NAME = `wedding-cache-${CACHE_VERSION}`;
 
 // Files to cache on install
@@ -17,7 +17,10 @@ const STATIC_CACHE_URLS = [
   '/js/modules/navigation.js',
   '/js/modules/rsvp.js',
   '/manifest.json',
-  '/fonts/Weddingday.ttf'
+  '/fonts/Weddingday.ttf',
+  '/images/cvi-mobile.webp',
+  '/images/cvi-tablet.webp',
+  '/images/cvi-desktop.webp'
 ];
 
 // Install event - cache static assets

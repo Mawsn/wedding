@@ -20,7 +20,7 @@ const TIMING = {
   flipDuration: 1500, // Stage 2: Flip animation
   openingDuration: 1000, // Stage 4: Envelope opening
   slideOutDuration: 1500, // Stage 5: Invitation slide out
-  displayDuration: 2000, // How long to display invitation before fade
+  displayDuration: 8000, // How long to display invitation before fade
   fadeOutDuration: 500, // Final overlay fade out
 };
 

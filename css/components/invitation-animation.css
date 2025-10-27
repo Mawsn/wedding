@@ -346,8 +346,8 @@
   }
 
   .wax-seal {
-    width: 80px;
-    height: 80px;
+    width: 35%;
+    height: 55%;
   }
 
   .wax-seal::before {

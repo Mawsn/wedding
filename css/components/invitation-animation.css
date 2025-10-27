@@ -179,9 +179,15 @@
 
 .wax-seal {
   position: relative;
-  width: 100px;
-  height: 100px;
+  width: 40%;
+  height: 150px;
+  /* Fallback gradient (if image doesn't load) */
   background: radial-gradient(circle, #8b0000 0%, #660000 100%);
+  /* Custom wax seal image */
+  background-image: url('../../images/wax_seal.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   border-radius: 50%;
   box-shadow: 0 4px 15px rgba(139, 0, 0, 0.6),
               inset 0 2px 5px rgba(255, 255, 255, 0.2),
@@ -203,16 +209,6 @@
 .wax-seal:focus {
   outline: 3px solid rgba(255, 255, 255, 0.8);
   outline-offset: 4px;
-}
-
-.wax-seal::before {
-  content: '';
-  position: absolute;
-  width: 60px;
-  height: 60px;
-  background: rgba(0, 0, 0, 0.1);
-  border-radius: 50%;
-  border: 2px solid rgba(139, 0, 0, 0.3);
 }
 
 .seal-text {
@@ -237,6 +233,26 @@
   }
   50% {
     transform: scale(1.05);
+  }
+}
+
+/* Interaction hints - pulsing glow effect */
+.wax-seal.hint {
+  animation: sealPulse 2s ease-in-out infinite, hintGlow 2s ease-in-out infinite;
+}
+
+@keyframes hintGlow {
+  0%, 100% {
+    box-shadow: 0 4px 15px rgba(139, 0, 0, 0.6),
+                inset 0 2px 5px rgba(255, 255, 255, 0.2),
+                inset 0 -2px 5px rgba(0, 0, 0, 0.3),
+                0 0 20px rgba(255, 215, 0, 0.6);
+  }
+  50% {
+    box-shadow: 0 4px 15px rgba(139, 0, 0, 0.6),
+                inset 0 2px 5px rgba(255, 255, 255, 0.2),
+                inset 0 -2px 5px rgba(0, 0, 0, 0.3),
+                0 0 40px rgba(255, 215, 0, 0.9);
   }
 }
 
@@ -422,6 +438,7 @@
   .envelope.opening,
   .wax-seal,
   .wax-seal.pulse,
+  .wax-seal.hint,
   .invitation-card,
   .invitation-card.visible {
     animation: none !important;

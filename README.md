@@ -8,6 +8,7 @@ A beautiful, responsive wedding RSVP website built as a Progressive Web App (PWA
 - 🌐 **Progressive Web App** - Installable and works offline
 - 📝 **RSVP Form** - Integrated with Google Forms for easy response collection
 - 🎨 **Beautiful Design** - Elegant wedding theme with smooth animations
+- 💌 **Envelope Animation** - Delightful first-time visitor experience with animated invitation
 - ♿ **Accessible** - Keyboard navigation and screen reader support
 - 🚀 **Fast Loading** - Optimized static site hosted on GitHub Pages
 
@@ -31,13 +32,16 @@ wedding/
 │   ├── variables.css      # CSS custom properties
 │   ├── main.css           # Main styles
 │   └── components/        # Component-specific styles
+│       └── invitation-animation.css  # Envelope animation styles
 ├── js/
 │   ├── app.js             # Main application
 │   ├── modules/
 │   │   ├── navigation.js  # Navigation component
-│   │   └── rsvp.js        # RSVP form handling
+│   │   ├── rsvp.js        # RSVP form handling
+│   │   └── invitation-animation.js  # Envelope animation logic
 │   └── service-worker.js  # PWA service worker
 ├── images/                # Image assets
+│   └── invite.JPG        # Wedding invitation image
 ├── icons/                 # PWA icons
 ├── manifest.json          # PWA manifest
 └── .nojekyll             # GitHub Pages configuration
@@ -167,6 +171,36 @@ Edit `css/variables.css`:
   /* ... other variables */
 }
 ```
+
+### Configuring Envelope Animation
+
+The envelope animation appears only on the first visit to the home page. To configure it, edit `js/modules/invitation-animation.js`:
+
+```javascript
+const ANIMATION_CONFIG = {
+  enabled: true,                    // Set to false to disable animation
+  autoPlayDuration: 15000,         // Auto-open after 15 seconds
+  respectReducedMotion: true,      // Respect accessibility preferences
+  storageKey: 'hasSeenInvitation', // localStorage key
+};
+```
+
+**To disable the animation:**
+```javascript
+enabled: false
+```
+
+**To reset and see the animation again:**
+Open browser console and run:
+```javascript
+window.weddingApp.resetInvitationAnimation();
+// Then reload the page
+```
+
+**Replace the invitation image:**
+- Replace `images/invite.JPG` with your own invitation image
+- Keep the same filename or update references in `index.html` and `invitation-animation.js`
+- Recommended size: max 500KB, dimensions around 1200x1600px
 
 ### Adding New Pages
 

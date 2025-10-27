@@ -3,6 +3,7 @@
 
 import { initNavigation } from './modules/navigation.js';
 import { initRSVP } from './modules/rsvp.js';
+import { initInvitationAnimation } from './modules/invitation-animation.js';
 
 // Initialize app when DOM is ready
 if (document.readyState === 'loading') {
@@ -12,6 +13,9 @@ if (document.readyState === 'loading') {
 }
 
 function init() {
+  // Initialize invitation animation (only on index.html for first-time visitors)
+  initInvitationAnimation();
+
   // Initialize navigation
   initNavigation();
 
@@ -121,5 +125,14 @@ window.addEventListener('offline', () => {
 window.weddingApp = {
   initNavigation,
   initRSVP,
-  registerServiceWorker
+  registerServiceWorker,
+  // Add animation reset for testing
+  resetInvitationAnimation: () => {
+    try {
+      localStorage.removeItem('hasSeenInvitation');
+      console.log('Animation reset - reload the page to see it again');
+    } catch (e) {
+      console.error('Failed to reset animation:', e);
+    }
+  }
 };

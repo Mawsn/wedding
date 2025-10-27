@@ -10,6 +10,7 @@
     <!-- Stylesheets -->
     <link rel="stylesheet" href="css/variables.css">
     <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/components/invitation-animation.css">
     
     <!-- PWA Manifest -->
     <link rel="manifest" href="manifest.json">
@@ -102,6 +103,45 @@
             <p>For questions, please contact us at <a href="mailto:elisha.mawson14@gmail.com">elisha.mawson14@gmail.com</a></p>
         </div>
     </footer>
+
+    <!-- Invitation Animation Overlay -->
+    <div id="invitation-animation-overlay" role="dialog" aria-modal="true" aria-label="Wedding invitation animation">
+        <!-- Skip Button -->
+        <button class="skip-button" aria-label="Skip animation">Skip</button>
+        
+        <!-- Screen Reader Announcements -->
+        <div class="sr-only" aria-live="polite" aria-atomic="true"></div>
+        
+        <!-- Envelope Container -->
+        <div class="envelope-container">
+            <div class="envelope">
+                <!-- Front of Envelope -->
+                <div class="envelope-front">
+                    <div class="invitation-text">
+                        Sally and Elisha<br>
+                        Wedding Invitation
+                    </div>
+                </div>
+                
+                <!-- Back of Envelope with Wax Seal -->
+                <div class="envelope-back">
+                    <button class="wax-seal" 
+                            role="button" 
+                            tabindex="0"
+                            aria-label="Tap to open the invitation">
+                        <span class="seal-text">Tap to<br>Open</span>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Invitation Card (slides out from envelope) -->
+            <div class="invitation-card">
+                <img src="images/invite.JPG" 
+                     alt="Sally and Elisha's wedding invitation" 
+                     loading="lazy">
+            </div>
+        </div>
+    </div>
 
     <!-- Scripts -->
     <script type="module" src="js/app.js"></script>

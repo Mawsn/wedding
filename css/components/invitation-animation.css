@@ -180,7 +180,7 @@
 .wax-seal {
   position: relative;
   width: 40%;
-  height: 150px;
+  height: 65%;
   /* Fallback gradient (if image doesn't load) */
   background: radial-gradient(circle, #8b0000 0%, #660000 100%);
   /* Custom wax seal image */

@@ -7,8 +7,9 @@
 
 const ANIMATION_CONFIG = {
   enabled: true, // Set to false to disable animation entirely
-  autoPlayDuration: 15000, // Auto-complete after 15s if no interaction (milliseconds)
+  autoPlayDuration: 15000000, // Auto-complete after 15s if no interaction (milliseconds)
   respectReducedMotion: true, // Respect user's prefers-reduced-motion setting
+  enableHints: true, // Show visual hints (pulsing glow) to guide users to tap the wax seal
   storageKey: 'hasSeenInvitation', // localStorage key for tracking visits
 };
 
@@ -123,7 +124,15 @@ function isIndexPage() {
 function preloadInvitationImage() {
   const img = new Image();
   img.src = 'images/invite.JPG';
-  // Image will be cached when it loads
+  
+  // Preload wax seal image
+  const sealImg = new Image();
+  sealImg.src = 'images/wax_seal.png';
+  sealImg.onerror = () => {
+    console.warn('Failed to load wax_seal.png - gradient fallback will be used');
+  };
+  
+  // Images will be cached when they load
 }
 
 // ============================================================================
@@ -200,6 +209,12 @@ function transitionToState(newState) {
       // Activate wax seal
       waxSeal.style.willChange = 'transform';
       waxSeal.classList.add('pulse');
+      
+      // Add hints if enabled and motion is allowed
+      if (ANIMATION_CONFIG.enableHints && !prefersReducedMotion()) {
+        waxSeal.classList.add('hint');
+      }
+      
       announceToScreenReader('Tap the wax seal to open the invitation');
       break;
 
@@ -207,6 +222,7 @@ function transitionToState(newState) {
       clearAutoPlayTimer();
       waxSeal.style.willChange = '';
       waxSeal.classList.remove('pulse');
+      waxSeal.classList.remove('hint'); // Remove hints on interaction
       
       envelope.style.willChange = 'transform';
       envelope.classList.add('opening');

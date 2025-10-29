@@ -842,7 +842,6 @@ a:hover {
 }
 
 .instagram-username {
-  font-family: var(--font-wedding);
   font-size: var(--font-size-xl);
   line-height: 1.2;
 }
